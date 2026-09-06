@@ -8,7 +8,7 @@ const HeroSection: React.FC = () => {
            style={{ backgroundImage: 'radial-gradient(#22d3ee 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-cyan-500 font-mono mb-4 animate-pulse"># Junior Mechatronics Engineer</h2>
+        <h2 className="text-cyan-500 font-mono mb-4 animate-pulse"># Senior Mechatronics Engineer</h2>
         <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight">
           Dalyn <span className="text-cyan-400">Wachala</span>
         </h1>
