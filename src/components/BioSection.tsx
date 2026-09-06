@@ -25,7 +25,7 @@ const BioSection: React.FC = () => {
           <div className="w-full md:w-2/3">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">About Me</h2>
             <p className="text-slate-400 text-lg mb-6 leading-relaxed">
-              I am a Junior Mechatronics Engineering student at Middle Tennessee State University (MTSU) with a passion for designing and implementing intelligent mechanical systems. 
+              I am a Senior Mechatronics Engineering student at Middle Tennessee State University (MTSU) with a passion for designing and implementing intelligent mechanical systems.
               My journey in engineering is driven by the challenge of integrating diverse technologies to solve complex real-world problems.
             </p>
             <p className="text-slate-400 text-lg mb-8 leading-relaxed">

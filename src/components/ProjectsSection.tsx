@@ -13,6 +13,14 @@ interface Project {
 const ProjectsSection: React.FC = () => {
   const projects: Project[] = [
     {
+      id: "smartbot",
+      title: "Smartbot - Terrain Traversability Estimation",
+      category: "Field Robotics",
+      description: "NSF REU research project at West Virginia University's Interdisciplinary Robotics Laboratory, developing a custom friction-sensing probe and predictive model to help robots estimate terrain traversability in areas they haven't physically driven over.",
+      tags: ["Sensor Design", "KiCad", "Kinematics"],
+      image: "/images/Smartbot1.png"
+    },
+    {
       id: "spiderbite",
       title: "SpiderBite - 3lb Combat Robot",
       category: "Robotics & Fabrication",

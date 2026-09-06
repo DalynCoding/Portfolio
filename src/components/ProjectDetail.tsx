@@ -6,6 +6,16 @@ const ProjectDetail: React.FC = () => {
   const [activeImage, setActiveImage] = useState(0);
 
   const projectsData: Record<string, any> = {
+    "smartbot": {
+      title: "Smartbot - Terrain Traversability Estimation",
+      category: "Field Robotics",
+      description: "A research project developing a method for robots to estimate terrain traversability in areas they haven't physically driven over.",
+      fullDetail: "During an NSF-funded Research Experience for Undergraduates (REU) at West Virginia University's Interdisciplinary Robotics Laboratory, under the guidance of Dr. Yu Gu, I worked on a 3-person team with Griffin Thomas and Peyton Barnes to develop a method for estimating terrain traversability in areas a robot has not physically driven over. Instead of relying on visual terrain classification alone, our approach directly measures surface friction at sampled points and predicts friction across the surrounding, unsampled terrain, producing a continuous friction map with quantified uncertainty that a robot can use to plan paths around risky terrain.\n\nMy role was to design and build the custom 2-DOF friction probe used to take these direct measurements: one joint applies and measures normal contact force through motor torque, while the second joint measures the tangential drag force as the probe traverses the surface. I designed the probe's sensing electronics in KiCad and derived the kinematic and virtual-work model used to convert the probe's raw force readings into a static coefficient of friction at each sampled point. We validated the probe's readings against an ASM 825A digital slipmeter across a multi-material indoor test arena.\n\nGriffin and Peyton extended these point measurements into full terrain maps using a piecewise Gaussian Process Regression model, built and tested in a custom NVIDIA Isaac Sim environment with our simulated robot platform, RayBot, across nine terrain regions of varying friction.",
+      specs: ["Sensing: Custom 2-DOF Friction Probe (Motor Torque + Drag Force)", "Validation: Benchmarked Against ASM 825A Digital Slipmeter", "Simulation: NVIDIA Isaac Sim with 'RayBot' Platform Across 9 Terrain Regions", "Output: Continuous Friction Map with Quantified Uncertainty (Piecewise Gaussian Process Regression)"],
+      tags: ["ROS", "NVIDIA Isaac Sim", "Python", "Gaussian Process Regression", "KiCad", "Kinematics/Jacobian Analysis", "Sensor Design"],
+      images: ["/images/Smartbot1.png", "/images/Smartbot2.png", "/images/Smartbot3.png", "/images/Smartbot4.png"],
+      demoVideo: "https://youtu.be/7rt_UMHY8jw?si=MKPP5HPloooTUMMs"
+    },
     "spiderbite": {
       title: "SpiderBite - 3lb Combat Robot",
       category: "Robotics & Fabrication",
@@ -93,10 +103,24 @@ const ProjectDetail: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="md:col-span-2">
             <h2 className="text-2xl font-bold text-white mb-4">Overview</h2>
-            <p className="text-slate-400 text-lg leading-relaxed mb-8">
+            <p className="text-slate-400 text-lg leading-relaxed mb-4 whitespace-pre-line">
               {project.fullDetail}
             </p>
-            
+
+            {project.demoVideo && (
+              <a
+                href={project.demoVideo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-bold mb-8 transition-colors"
+              >
+                Watch Project Demo
+                <svg className="w-4 h-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            )}
+
             <h2 className="text-2xl font-bold text-white mb-4">Technical Specifications</h2>
             <ul className="space-y-3 mb-8">
               {project.specs.map((spec: string, i: number) => (
