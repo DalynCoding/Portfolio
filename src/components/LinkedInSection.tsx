@@ -4,15 +4,8 @@ const LinkedInSection: React.FC = () => {
   const posts = [
     {
       date: "New",
-      content: "Had a great time at EOSYS today with Gabrielle Miller and Aidan Martin. Got to see “Spot” the Boston Dynamics robot. Thank you very much to Richard Masulis for giving us the run-down on the various uses and functions of the robot. It was a very fun experience!",
-      hashtags: ["#Robotics", "#BostonDynamics", "#Spot", "#EOSYS", "#Engineering"],
-      likes: "Recent",
-      comments: "Active"
-    },
-    {
-      date: "Recent",
-      content: "I’m happy to share that I’m starting a new position as AIMS Robotics Researcher at Middle Tennessee State University (MTSU)!",
-      hashtags: ["#Robotics", "#Research", "#MTSU", "#Mechatronics"],
+      content: "I had the incredible opportunity to spend 10 weeks of my summer at West Virginia University participating in the NSF-funded Robotics in Appalachia REU program!\n\nI did a lot of interesting research on autonomous navigation in dynamic environments. We focused our project on probing uncertain areas to inform the robot on how to better navigate through those areas.\n\nFor more information on the project, a YouTube link of a project demo is provided here: https://lnkd.in/gZ6awV5K\n\nII would love to thank the entirety of the WVU IRL lab, Dr. Yu Gu, and Dr. Jason Gross for giving me the chance to learn more about the graduate student experience and robotics as a whole.\n\nIAlso, a huge thank you to my group mates Griffin Thomas and Peyton Barnes, as the project would not have came together without you guys.\n\nMy time in West Virginia taught me priceless knowledge that I will cherish as I continue with my career. Go Mountaineers!! 〽️〽️",
+      hashtags: ["#Robotics", "#NSF", "#REU", "#WVU", "#AutonomousVehicles", "#STEM"],
       likes: "Recent",
       comments: "Active"
     },
@@ -22,7 +15,14 @@ const LinkedInSection: React.FC = () => {
       hashtags: ["#Robotics", "#NSF", "#REU", "#WVU", "#AutonomousVehicles", "#STEM"],
       likes: "High",
       comments: "Active"
-    }
+    },
+    {
+      date: "Recent",
+      content: "I’m happy to share that I’m starting a new position as AIMS Robotics Researcher at Middle Tennessee State University (MTSU)!",
+      hashtags: ["#Robotics", "#Research", "#MTSU", "#Mechatronics"],
+      likes: "Recent",
+      comments: "Active"
+    },
   ];
 
   return (

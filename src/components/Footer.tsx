@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div>
             <span className="text-cyan-400 font-bold text-xl tracking-tighter">DALYN WACHALA</span>
-            <p className="text-slate-500 mt-2">Junior Mechatronics Engineering Student</p>
+            <p className="text-slate-500 mt-2">Senior Mechatronics Engineering Student</p>
           </div>
           
           <div className="flex flex-col md:flex-row gap-8">
