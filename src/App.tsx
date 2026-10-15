@@ -21,9 +21,9 @@ function App() {
   return (
     <Router>
       <ScrollToAnchor />
-      <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-cyan-400 selection:text-slate-950">
+      <div className="min-h-screen flex flex-col">
         <Header />
-        <main>
+        <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/project/:id" element={<ProjectDetail />} />

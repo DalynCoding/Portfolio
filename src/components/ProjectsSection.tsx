@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Reveal from './Reveal';
+import SectionHeading from './SectionHeading';
 
 interface Project {
   id: string;
@@ -17,7 +19,7 @@ const ProjectsSection: React.FC = () => {
       title: "Smartbot - Terrain Traversability Estimation",
       category: "Field Robotics",
       description: "NSF REU research project at West Virginia University's Interdisciplinary Robotics Laboratory, developing a custom friction-sensing probe and predictive model to help robots estimate terrain traversability in areas they haven't physically driven over.",
-      tags: ["Sensor Design", "KiCad", "Kinematics"],
+      tags: ["Kinematics", "ROS", "NVIDIA Isaac Sim"],
       image: "/images/Smartbot1.png"
     },
     {
@@ -33,7 +35,7 @@ const ProjectsSection: React.FC = () => {
       title: "Da Bedda Car - Micromouse",
       category: "Autonomous Systems",
       description: "An autonomous maze-solving robot designed for speed and precision. Implements efficient pathfinding algorithms and infrared sensor feedback.",
-      tags: ["C++", "PID Control", "Sensors"],
+      tags: ["KiCad", "PCB Design", "Sensor Integration"],
       image: "/images/Micromouse1.png"
     },
     {
@@ -55,50 +57,51 @@ const ProjectsSection: React.FC = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 bg-slate-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-end mb-12">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Featured Projects</h2>
-            <p className="text-slate-400">A showcase of my engineering work and academic accomplishments.</p>
-          </div>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <section id="projects" className="scroll-mt-16 border-t border-white/10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-20 md:py-24">
+        <Reveal className="mb-12">
+          <SectionHeading label="Projects" title="Selected work" />
+          <p className="text-slate-400 mt-3">A showcase of my engineering work and academic accomplishments.</p>
+        </Reveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
-            <Link to={`/project/${project.id}`} key={index} className="group bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.1)]">
-              <div className="aspect-video relative overflow-hidden">
-                <img src={project.image} alt={project.title} className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500" />
-                <div className="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-cyan-400 border border-cyan-400/30">
-                  {project.category}
+            <Reveal key={project.id} delay={index === 0 ? 0 : (index % 2) * 100} className={index === 0 ? 'md:col-span-2' : ''}>
+              <Link
+                to={`/project/${project.id}`}
+                className={`group h-full flex flex-col bg-slate-900/60 rounded-xl overflow-hidden border border-white/10 hover:border-blue-400/40 hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-950/50 transition-all duration-300 ${index === 0 ? 'md:flex-row' : ''}`}
+              >
+                <div className={`relative overflow-hidden bg-slate-800 aspect-video ${index === 0 ? 'md:w-1/2 md:aspect-auto md:min-h-80' : ''}`}>
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 to-transparent" aria-hidden="true"></div>
+                  {index === 0 && (
+                    <span className="absolute top-4 left-4 text-xs font-medium text-white bg-blue-600 rounded-full px-3 py-1">Featured</span>
+                  )}
                 </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">{project.title}</h3>
-                <p className="text-slate-400 text-sm mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, tIndex) => (
-                    <span key={tIndex} className="text-[10px] uppercase tracking-wider font-bold text-slate-500 bg-slate-800 px-2 py-1 rounded">
-                      {tag}
-                    </span>
-                  ))}
+                <div className={`p-6 flex flex-col flex-1 ${index === 0 ? 'md:p-8 md:justify-center' : ''}`}>
+                  <p className="text-xs font-medium text-blue-400 mb-2">{project.category}</p>
+                  <h3 className={`font-semibold text-white mb-2 group-hover:text-blue-300 transition-colors ${index === 0 ? 'text-xl md:text-2xl' : 'text-lg'}`}>
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-slate-400 leading-relaxed mb-5">
+                    {project.description}
+                  </p>
+                  <div className="mt-auto flex items-center justify-between gap-4">
+                    <p className="text-xs text-slate-500">{project.tags.join(' · ')}</p>
+                    <span className="grid place-items-center w-8 h-8 flex-shrink-0 rounded-full border border-white/10 text-blue-400 group-hover:bg-blue-600 group-hover:border-blue-600 group-hover:text-white transition-colors" aria-hidden="true">→</span>
+                  </div>
                 </div>
-                <div className="mt-6 text-cyan-400 text-sm font-bold flex items-center group-hover:translate-x-1 transition-transform">
-                  View Case Study
-                  <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </div>
-              </div>
-            </Link>
+              </Link>
+            </Reveal>
           ))}
         </div>
       </div>
     </section>
   );
 };
-
 
 export default ProjectsSection;
